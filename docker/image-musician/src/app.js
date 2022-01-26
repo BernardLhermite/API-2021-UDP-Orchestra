@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const dgram = require('dgram');
 
 program
-  .addArgument(new program.argument('<instrument>', 'the instrument used by this musician')
+  .addArgument(new program.Argument('<instrument>', 'the instrument used by this musician')
   .choices(protocol.instruments))
   .parse();
 
