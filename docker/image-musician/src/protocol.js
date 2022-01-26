@@ -11,5 +11,6 @@ module.exports = Object.freeze({
     port: PORT,
     multicast: MULTICAST_ADDRESS,
     getSound: (instrument) => INSTRUMENTS[instrument],
+    getInstrument: (sound) => Object.keys(INSTRUMENTS).find(key => INSTRUMENTS[key] === sound),
     instruments: Object.keys(INSTRUMENTS)
 });

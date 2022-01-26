@@ -2,12 +2,10 @@
   "name": "music-auditor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stéphane Marengo & Loris Marzullo",
-  "license": "ISC",
-  "dependencies": {
-  }
+  "license": "ISC"
 }
