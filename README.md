@@ -121,53 +121,53 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | #        | Topic                                                                               |
 | -------- | ----------------------------------------------------------------------------------- |
 | Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-|          | Avec la fonction stringify() |
+|          | Avec la fonction `JSON.stringify(objet)` |
 | Question | What is **npm**?                                                                    |
-|          | "Node package manager" |
+|          | "Node package manager", l'outil utilisé pour gérer les paquets (dépendances) de notre application. |
 | Question | What is the `npm install` command and what is the purpose of the `--save` flag?     |
-|          | npm install permet d'installer un package ainsi que tous les packages dont il dépend. Ceux-ci sont sauvegardés dans "dependencies", les flags commençant par --save permettent de changer l'endroit où le package est sauvegardé. |
+|          | `npm install` permet d'installer un paquet Node.js et le flag `--save` permet de l'inclure dans le fichier `package.json` et ainsi indiquer que notre application en dépend. |
 | Question | How can we use the `https://www.npmjs.com/` web site?                               |
-|          | Il s'agit d'un site où il est possible de récupérer des packages pour node |
+|          | Il s'agit d'un site où il est possible de chercher et récupérer des packages pour Node.js |
 | Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?               |
-|          | Avec la fonction uuidv4() ? |
+|          | En utilisant le paquet Node `uuid` et en appelant sa fonction `uuidv4()` |
 | Question | In Node.js, how can we execute a function on a **periodic** basis?                  |
-|          | Avec la fonction setInterval() |
+|          | Avec la fonction `setInterval()` |
 | Question | In Node.js, how can we **emit UDP datagrams**?                                      |
-|          | Avec à la fonction socket.send() |
+|          | En utilisant le module `dgram` puis en créant un `socket` et finalement grâce à la fonction `socket.send()` |
 | Question | In Node.js, how can we **access the command line arguments**?                       |
-|          | Les arguments de la ligne de commande sont accédés grâce au tableau program.args[] |
+|          | Les arguments de la ligne de commande sont accédés avec `process.argv` ou en utilisant un module tel que `Commander.js` |
 
 ## Task 3: package the "musician" app in a Docker image
 
 | #        | Topic                                                                               |
 | -------- | ----------------------------------------------------------------------------------- |
 | Question | How do we **define and build our own Docker image**?                                |
-|          | Avec la commande docker build -t myname/myimage . |
+|          | En créant un `Dockerfile` puis en exécutant `docker build -t nom_image .` |
 | Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                        |
-|          | L'instruction ENTRYPOINT permet d'exécuter automatiquement l'application js au lancement du container Docker. |
+|          | L'instruction `ENTRYPOINT` permet d'exécuter automatiquement l'application js au lancement du container Docker. |
 | Question | After building our Docker image, how do we use it to **run containers**?            |
-|          | Avec la commande docker run -d myname/myserver |
+|          | Avec la commande `docker run -d nom_image` |
 | Question | How do we get the list of all **running containers**?                               |
-|          | Avec la commande docker ps |
+|          | Avec la commande `docker ps` |
 | Question | How do we **stop/kill** one running container?                                      |
-|          | Avec la commande docker stop my_container ou docker kill my_containe |
+|          | Avec la commande `docker stop mon_container` ou `docker kill mon_container` |
 | Question | How can we check that our running containers are effectively sending UDP datagrams? |
-|          | Avec la commande tcpdump ? |
+|          | Avec la commande `tcpdump` ou un outil comme Wireshark |
 
 ## Task 4: implement an "auditor" Node.js application
 
 | #        | Topic                                                                                              |
 | -------- | -------------------------------------------------------------------------------------------------- |
 | Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                            |
-|          |  |
+|          | En appelant `socket.bind(PORT, FN)` puis en appelant `socket.addMembership(ADRESSE_MULTICAST)` dans la fonction `FN` |
 | Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? |
-|          |  |
+|          | En créant un nouveau Map avec `new Map()` puis en ajoutant des éléments avec `map.set(key, value)` |
 | Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?   |
-|          |  |
+|          | En utilisant des fonctions tel que `moment().add().subtract().year()...`, `moment().format()` ou `moment().toISOString()`. Nous n'avons pas utilisé ce module car il est déprécié et nous n'en avions pas besoin. |
 | Question | When and how do we **get rid of inactive players**?                                                |
-|          | Les musiciens sont considérés comme inactifs s'ils n'emettent pas de sons pendant plus de 5 secondes. |
+|          | Lorsque la liste des musiciens est demandée, ceux qui n'ont pas émis de son depuis plus de 5 secondes sont retirés du dictionnaire grâce à `map.delete(key)` |
 | Question | How do I implement a **simple TCP server** in Node.js?                                             |
-|          |  |
+|          | Avec le module `net` en utilisant entre autres les instructions `net.createServer()` et `server.listen()` |
 
 ## Task 5: package the "auditor" app in a Docker image
 
