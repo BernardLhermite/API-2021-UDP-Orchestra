@@ -1,7 +1,7 @@
 FROM node:16.13.1
 
 WORKDIR /opt/app/
-COPY ../../../protocol.js .
+COPY src .
 
 RUN npm install
 
